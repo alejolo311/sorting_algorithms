@@ -41,9 +41,9 @@ void selection_sort(int *array, size_t size)
  */
 size_t find_least(int *array, size_t size, int n, size_t actual_i)
 {
-	unsigned int least_index = n, i;
+	unsigned int least_index = actual_i, i;
 
-	for (i = actual_i; i < size; i++)
+	for (i = actual_i + 1; i < size; i++)
 	{
 		if (array[i] < n)
 		{
