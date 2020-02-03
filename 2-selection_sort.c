@@ -14,6 +14,9 @@ void selection_sort(int *array, size_t size)
 	unsigned int i, least_index;
 	int aux;
 
+	if (array == NULL || size < 2)
+		return;
+
 	for (i = 0; i < size; i++)
 	{
 		least_index = find_least(array, size, array[i], i);
