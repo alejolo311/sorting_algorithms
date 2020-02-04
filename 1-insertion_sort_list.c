@@ -1,4 +1,10 @@
 #include "sort.h"
+/**
+ * insertion_sort_list - insertion sort algorithm
+ * Description: insertion sort algorithm
+ * @list: list
+ * Return: void
+ */
 void insertion_sort_list(listint_t **list)
 {
 	listint_t *aux, *tail, *head, *swap_1, *swap_2, *aux_1, *aux_2;
