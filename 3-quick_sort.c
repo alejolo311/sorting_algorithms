@@ -25,7 +25,7 @@ void quick_sort(int *array, size_t size)
  */
 void q_sort(int *array, int lo, int hi, size_t size)
 {
-	size_t part;
+	int part;
 
 	if (lo < hi)
 	{
@@ -50,7 +50,7 @@ size_t partition(int *array, int lo, int hi, size_t size)
 
 	for (j = lo; j < hi; j++)
 	{
-		if (array[j] < pivot)
+		if (array[j] <= pivot)
 		{
 			i++;
 			if (i != j)
