@@ -1,6 +1,7 @@
 #include "sort.h"
 
-size_t find_least(int *array, size_t size, int n, size_t actual_i);
+void q_sort(int *array, int lo, int hi, size_t size);
+size_t partition(int *array, int lo, int hi, size_t size);
 
 /**
  * quick_sort - Quick sort algorithm
@@ -11,43 +12,62 @@ size_t find_least(int *array, size_t size, int n, size_t actual_i);
  */
 void quick_sort(int *array, size_t size)
 {
-	unsigned int i, least_index;
-	int aux;
+	q_sort(array, 0, size - 1, size);
+}
 
-	for (i = 0; i < size; i++)
+/**
+ * q_sort - Implementation of quick sort
+ * @array: Array
+ * @lo: Lower index
+ * @hi: Higher index
+ * @size: Size of @array
+ * Return:
+ */
+void q_sort(int *array, int lo, int hi, size_t size)
+{
+	size_t part;
+
+	if (lo < hi)
 	{
-		least_index = find_least(array, size, array[i], i);
-
-		if (array[least_index] < array[i])
-		{
-			aux = array[i];
-			array[i] = array[least_index];
-			array[least_index] = aux;
-			print_array(array, size);
-		}
+		part = partition(array, lo, hi, size);
+		q_sort(array, lo, part - 1, size);
+		q_sort(array, part + 1, hi, size);
 	}
 }
 
 /**
- * find_least -  Finds the index of the least number
- * Description: Function that finds the index of the least number
+ * partition - Partition function
  * @array: Array
- * @size: Size of the array
- * @n: The number of the superior loop
- * @actual_i: The actual index on superior loop
- * Return: The index of the least number
+ * @lo: Lower index
+ * @hi: Higher index
+ * @size: Size of @array
+ * Return: Index when we gonna make the partition
  */
-size_t find_least(int *array, size_t size, int n, size_t actual_i)
+size_t partition(int *array, int lo, int hi, size_t size)
 {
-	unsigned int least_index = actual_i, i;
+	int aux, pivot = array[hi];
+	int i = lo - 1, j;
 
-	for (i = actual_i + 1; i < size; i++)
+	for (j = lo; j < hi; j++)
 	{
-		if (array[i] < n)
+		if (array[j] < pivot)
 		{
-			n = array[i];
-			least_index = i;
+			i++;
+			if (i != j)
+			{
+				aux = array[i];
+				array[i] = array[j];
+				array[j] = aux;
+				print_array(array, size);
+			}
 		}
 	}
-	return (least_index);
+	if (i + 1 != hi)
+	{
+		aux = array[i + 1];
+		array[i + 1] = array[hi];
+		array[hi] = aux;
+		print_array(array, size);
+	}
+	return (i + 1);
 }
