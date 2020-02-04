@@ -2,7 +2,6 @@
 void insertion_sort_list(listint_t **list)
 {
 	listint_t *aux, *tail, *head, *swap_1, *swap_2, *aux_1, *aux_2;
-	int counter = 0;
 
 	if (list == NULL || *list == NULL)
 		return;
@@ -34,7 +33,7 @@ void insertion_sort_list(listint_t **list)
 					aux_2 != NULL ? aux_2->prev = swap_1 : aux_2;
 					swap_2->prev = aux_1, swap_1->next = aux_2;
 					swap_2->next = swap_1, swap_1->prev = swap_2;
-					 print_list(*list);
+					print_list(*list);
 				}
 				else
 					break;
