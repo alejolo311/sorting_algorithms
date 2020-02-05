@@ -23,6 +23,7 @@ typedef listint_t l_t;
 /* print */
 void print_array(const int *array, size_t size);
 void print_list(const listint_t *list);
+void swap_values(listint_t *swap_1, listint_t *swap_2, listint_t **list);
 
 /* sorting  */
 void bubble_sort(int *array, size_t size);
