@@ -35,5 +35,10 @@ void cocktail_sort_list(listint_t **list);
 void merge_sort(int *array, size_t size);
 void radix_sort(int *array, size_t size);
 
+/* Helpers */
+
+ void sort_recursive(int *array, int *i, int start, int end);
+ void merge_arrays(int *arr, int *i, int start, int mid, int end);
+
 #endif /* SORT_H */
 
