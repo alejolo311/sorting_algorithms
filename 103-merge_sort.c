@@ -12,7 +12,7 @@ void merge_sort(int *array, size_t size)
 
 	if (array == NULL || size < 2)
 		return;
-	i = malloc(sizeof(int) * size),sort_recursive(array, i, 0, size);
+	i = malloc(sizeof(int) * size), sort_recursive(array, i, 0, size);
 	free(i);
 }
 /**
